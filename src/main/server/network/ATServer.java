@@ -137,6 +137,10 @@ public class ATServer implements Runnable {
 		}
 		return result;
 	}
+	
+	public int getClientState(int id) {
+		return clientState(clients.get(id));
+	}
 
 	private boolean exist(ServerThread from) {
 		boolean result=false;

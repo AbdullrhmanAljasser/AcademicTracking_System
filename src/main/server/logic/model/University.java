@@ -69,7 +69,7 @@ public class University implements UniversityInt {
 			@Override
 			public void run() {
 				Config.REGISTRATION_STARTS = true;
-				//System.out.println("registration starts");
+				System.out.println("registration starts");
 			}
 		}, Config.SIMULATED_DAY * 20);
 		
@@ -79,9 +79,9 @@ public class University implements UniversityInt {
 			public void run() {
 				// TODO Auto-generated method stub
 				Config.REGISTRATION_ENDS = true;
-				//System.out.println("registration ends");
+				System.out.println("registration ends");
 			}
-		}, Config.SIMULATED_DAY * (20 + 14));
+		}, Config.SIMULATED_DAY * (2000 + 14));
 		
 		timer_termends.schedule(new TimerTask() {
 			
@@ -92,14 +92,14 @@ public class University implements UniversityInt {
 				for (int i=0; i<University.getInstance().getCourses().size(); i++) {
 					University.getInstance().MarkStudents(University.getInstance().getCourses().get(i));
 				}
-				//System.out.println("term ends");
+				System.out.println("term ends");
 			}
-		}, Config.SIMULATED_DAY * (20 + 14 + 84));
+		}, Config.SIMULATED_DAY * (200000 + 14 + 84));
 	}
 	
 	private void InitializeCourses() {
 		courses.clear();
-		/*
+		
 		ProjectCourse c1 = new ProjectCourse("OO Software Dev", 105104, 30, false, 0, 3, false);
 		ProjectCourse c2 = new ProjectCourse("Computational Geometry", 105008, 20, false, 0, 3, false);
 		Course c3 = new Course("Principles of Distributed Computing", 105003, 20, false, 1, 2, true);
@@ -111,12 +111,12 @@ public class University implements UniversityInt {
 		courses.add(c4);
 		courses.add(c5);
 		logger.info(String.format("University Operation: Initialize course list; courses: %s", courses));
-		*/
+		
 	}
 
 	private void InitializeStudents() {
 		students.clear();
-		/*
+		
 		int[] studentNumberList = new int[]{101075401, 101075402};
 		String[] studentNameList = new String[]{"tom","jack"};
 		boolean[] isFullTimeList = new boolean[]{true,false};
@@ -125,7 +125,7 @@ public class University implements UniversityInt {
 			students.add(s);
 		}
 		logger.info(String.format("University Operation: Initialize student list; students: %s", students));
-		*/
+		
 	}
 
 	public int getUniversityCourses() {
