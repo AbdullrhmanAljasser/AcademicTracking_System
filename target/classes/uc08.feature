@@ -1,5 +1,7 @@
 Feature: UC8 Client logs into student
-
+	Background: 
+		Given Server Running
+		
   @tag1
   Scenario: Client successfully logs in as student
     Given Student has been created by Clerk

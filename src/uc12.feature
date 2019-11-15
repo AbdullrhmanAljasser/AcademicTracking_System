@@ -1,6 +1,8 @@
 @tag
 Feature: UC12 Student drops course
-
+	Background: 
+		Given Server Running
+		
   @tag1
   Scenario: Successfully drop a course
     Given Client has selected list of courses

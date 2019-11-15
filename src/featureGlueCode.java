@@ -10,7 +10,7 @@ import main.utilities.Config;
 
 public class featureGlueCode {
 	static ATServer ATS = new ATServer(Config.DEFAULT_PORT);
-	ATClient ATC = new ATClient(Config.DEFAULT_HOST, Config.DEFAULT_PORT);
+	static ATClient ATC = new ATClient(Config.DEFAULT_HOST, Config.DEFAULT_PORT);
 	
 	@Given("^Server Running$")
 	public void server_Running() throws Throwable {
@@ -45,6 +45,25 @@ public class featureGlueCode {
 	@Then("^Client is sent back to login menu$")
 	public void client_is_sent_back_to_login_menu() throws Throwable {
 		assertEquals(ATS.getClientState(ATC.getID()),InputHandler.CLERKLOGIN);
+	}
+	
+	//----------------UC 2
+	
+	@Given("^Client logged in as Clerk$")
+	public void client_logged_in_as_Clerk() throws Throwable {
+		ATS.handle(ATC.getID(), "hi");
+		ATS.handle(ATC.getID(), "clerk");
+		ATS.handle(ATC.getID(), "admin");
+	}
+
+	@When("^Client in Clerk Menu selects log out$")
+	public void client_in_Clerk_Menu_selects_log_out() throws Throwable {
+		ATS.handle(ATC.getID(), "log out");
+	}
+
+	@Then("^Client back to greeting terminal$")
+	public void client_back_to_greeting_terminal() throws Throwable {
+	    assertEquals(InputHandler.WAITING,ATS.getClientState(ATC.getID()));
 	}
 	
 	//----------------UC 3
@@ -319,6 +338,20 @@ public class featureGlueCode {
 		assertEquals(InputHandler.STUDENTLOGIN, ATS.getClientState(ATC.getID()));
 	}
 
+	//-------------- UC9
+	
+	@Given("^Client logged in as Student$")
+	public void client_logged_in_as_Student() throws Throwable {
+		ATS.handle(ATC.getID(), "hi");
+		ATS.handle(ATC.getID(), "student");
+		ATS.handle(ATC.getID(), "101075401, tom");
+	}
+
+	@When("^Client in Student Menu selects log out$")
+	public void client_in_Student_Menu_selects_log_out() throws Throwable {
+		ATS.handle(ATC.getID(), "log out");
+	}
+	
 	//-------------- UC10
 	
 	@Given("^Client in Student menu and has courses selected$")

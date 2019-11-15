@@ -1,5 +1,7 @@
 Feature: UC11 Client deregister from course 
-
+	Background: 
+		Given Server Running
+		
   @tag1
   Scenario: Successfully deregister from course
     Given Student registered in course to be dropped

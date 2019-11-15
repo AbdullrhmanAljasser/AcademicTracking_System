@@ -1,5 +1,7 @@
 Feature: UC10 Client register for course as student
-
+	Background: 
+		Given Server Running
+		
   @tag1
   Scenario: Successfully Register for a course
     Given Client in Student menu and has courses selected
