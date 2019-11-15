@@ -68,7 +68,7 @@ public class University implements UniversityInt {
 			
 			@Override
 			public void run() {
-				Config.REGISTRATION_STARTS = true;
+				//Config.REGISTRATION_STARTS = true;
 				System.out.println("registration starts");
 			}
 		}, Config.SIMULATED_DAY * 20);
@@ -78,7 +78,7 @@ public class University implements UniversityInt {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				Config.REGISTRATION_ENDS = true;
+				//Config.REGISTRATION_ENDS = true;
 				System.out.println("registration ends");
 			}
 		}, Config.SIMULATED_DAY * (2000 + 14));
@@ -88,7 +88,7 @@ public class University implements UniversityInt {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				Config.TERM_ENDS = true;
+				//Config.TERM_ENDS = true;
 				for (int i=0; i<University.getInstance().getCourses().size(); i++) {
 					University.getInstance().MarkStudents(University.getInstance().getCourses().get(i));
 				}
